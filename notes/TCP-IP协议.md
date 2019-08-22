@@ -303,11 +303,54 @@ ICMP重定向报文也能用于更新路由表，因此简要讨论 ICMP 重定�
 
 原始 IP 数据报的头部信息包括可选字段加上数据部分的前 8 字节，那么 ICMP 重定向报文的数据部分含义都十分的明确。它给接收方提供了如下两个信息，第一个是引起重定向的 IP 数据报的源端 IP 地址，第二个是应该使用路由器的 IP 地址，接收主机根据这两个信息，就可以断定引起重定向的 IP 数据报应该是由哪一个路由器来进行转发。并且因此来更新路由表。通常是更新路由表的缓冲而不是直接更改。
 
+# TCP/IP 参考模型
+
+<div align="center"> <img src="pics/TCP-IP/TCP-IP25.png" width="450"/> </div><br>
+
+## 概念
+
+在 TCP/IP 参考模型中，去掉了参考模型中的会话层和表示层（都合并到应用层实现），同时将 OSI 参考模型中的物理层合并进数据链路层。
+
+<div align="center"><img src="pics/TCP-IP/TCP-IP26.png" width="450"/></div><br>
+
+## OSI 七层与 TCP/IP 四层的关系
+
++ OSI引进了服务、接口、协议、分层的概念，TCP/IP借鉴了OSI的这些概念建立TCP/IP模型。 
++ OSI先有模型，后有协议，先有标准，后进行实践；而TCP/IP则相反，先有协议和应用，再提出了模型，且是参照OSI模型。 
++ OSI是一种理论下的模型，而TCP/IP已经被广泛应用，称为网络互联实施上的标准。
+
+## TCP 报文格式
+
+<div align="center"><img src="pics/TCP-IP/TCP-IP27.png" width="450"/></div><br>
+
+<div align="center"><img src="pics/TCP-IP/TCP-IP28.png" width="450"/></div><br>
+
+上图中有几个字段需要重点介绍下： 
++ 序号：Seq序号，占32位，用来标识从TCP源端向目的端发送的字节流，发起方发送数据时对此进行标记。 
++ 确认序号：Ack序号，占32位，只有ACK标志位为1时，确认序号字段才有效，Ack=Seq+1。 
++ 标志位：共6个，即URG、ACK、PSH、RST、SYN、FIN等
++ URG：紧急指针（urgent pointer）有效。 
++ ACK：确认序号有效。 
++ PSH：接收方应该尽快将这个报文交给应用层。 
++ RST：重置连接。 
++ SYN：发起一个新连接。 
++ FIN：释放一个连接。
+
+## 地址划分
+
+<div align="center"><img src="pics/TCP-IP/TCP-IP29.png" width="450"/></div><br>
+
+## 网络协议通讯图
+
+<div align="center"><img src="pics/TCP-IP/TCP-IP30.png" width="450"/></div><br>
 
 【资料】
 
 https://www.bilibili.com/video/av27593391/?p=1
 
 https://blog.csdn.net/doraemon___/article/details/52711221
+
+[科来网络通讯协议图219](pdf/科来网络通讯协议图2019版.pdf)
+
 
 
