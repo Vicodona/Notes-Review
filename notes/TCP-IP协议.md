@@ -120,19 +120,19 @@ UDP 协议则相反，提供了不可靠的服务。如果数据在中途丢失�
 
 UDP 数据报为经过 UDP 封装之后的数据。
 
-<div align="center"> <img src="pics/TCP-IP/TCP-IP11.png" width="450"/> </div><br>
+<div align="center"> <img src="pics/TCP-IP/TCP-IP10.png" width="450"/> </div><br>
 
 ### 帧
 
 经过数据链路层封装的数据。传输的媒介不同，帧的类型也就不同。比如说以太网上传输的是以太网帧，令牌网上传输的是令牌网帧。
 
-<div align="center"> <img src="pics/TCP-IP/TCP-IP12.png" width="450"/> </div><br>
+<div align="center"> <img src="pics/TCP-IP/TCP-IP11.png" width="450"/> </div><br>
 
 ## 3 分用
 
 通过分用（demultiplexing)使在帧到达目的主机沿着自底向上依次传递时，各层协议依次处理帧中本层负责头部数据，以获取所需的信息，并最终将处理后的帧交给目标应用程序
 
-<div align="center"> <img src="pics/TCP-IP/TCP-IP13.png" width="450"/> </div><br>
+<div align="center"> <img src="pics/TCP-IP/TCP-IP12.png" width="450"/> </div><br>
 
 因为 IP 协议、ARP 协议和 RARP 协议都是通过帧来传输数据的，所以帧的头部需要提供某个字段来区分它们。比如说以太网帧，用两个字节的类型来标识上层的协议。因为 ICMP 协议、TCP 协议和 UDP 协议都使用IP协议。所以 IP 数据报的头部采用16位的协议字段来区分它们。TCP 的报文段和 UDP 的报文段则通过头部 16 位的端口号字段来区分上层的协议。比如，DNS 对应的端口号是 53，而 HTTP 的协议是 80，那么，帧通过上述的分用的步骤之后，最终将封装的原始数据发送到目标的服务。在顶层的目标服务来看，封装和分用并没有发生过。
 
