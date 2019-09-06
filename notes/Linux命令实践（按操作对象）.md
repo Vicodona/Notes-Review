@@ -19,7 +19,7 @@ ls -R                                      # 递归列出子目录
 du -s * | sort -nr                         # 按文件大小列出目录下的文件（降序）
                                            # -s,当前文件夹的大小	
 
-find /dir -mmin -30 -name "*.c" 		   # 查找30min中内被修改过的 .c 文件
+find /dir -mmin -30 -name "*.c"            # 查找30min中内被修改过的 .c 文件
 find /dir -mtime 0 -type f                 # 查找最近一天被修改过的普通文件
 						   
 
