@@ -268,7 +268,7 @@ Docker 容器通过 Docker 镜像来创建，容器与镜像的关系类似于�
 
 如图所示基本架构：
 
-![docker](/pics/Docker/docker01.jpg)
+![docker](pics/Docker/docker01.jpg)
 
 1.Docker 镜像(Images)
 
